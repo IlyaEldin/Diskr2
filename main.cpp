@@ -7,13 +7,13 @@
 using namespace std;
 bool Tnull(bool f)
 {
-    if (f==0)
-        return 1;
+    if (f==0){
+        return 1;}else{return 0;}
 }
 bool Tone(bool f)
 {
-    if (f==1)
-        return 1;
+    if (f==1){
+        return 1;}else{return 0;}
 }
 int main()
 {
@@ -79,7 +79,9 @@ int main()
         cout << setw(3) << f[j];
         cout << endl;
     }
-    cout<<endl;
+
+    bool nullT=Tnull(f[0]);
+    bool oneT=Tone(f[7]);
     int DIM3=DIM1+1;
     int ary1[DIM3][DIM2];
     bool samka=1;
@@ -96,8 +98,7 @@ int main()
             }
         }
     }
-    bool nullT=Tnull(f[0]);
-    bool oneT=Tone(f[7]);
+
     cout<<"ПОЛИНОМ ЖЕГАЛКИНА функции: "<<endl;
     string G="(";
     bool zna[8],znach[8],znach1[8];
@@ -187,3 +188,4 @@ int main()
     cout<<setw(8)<<nullT<<setw(8)<<oneT<<setw(8)<<samka<<setw(8)<<Mono<<setw(8)<<LinT<<endl;
     return 0;
 }
+
