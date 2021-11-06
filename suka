@@ -5,12 +5,14 @@
 #include <algorithm>
 using namespace std;
 const int maxn = 100;
+const int maxn_n = maxn * (maxn - 1) / 2;
+int p[4][maxn_n];
 int Mark[maxn];
-int n;
+int k,i,t,m,n;
 void Change_Mark(int l,int m,int n)
 {
 
-    int t;
+    int i,t;
     if (m<l) {
         t=l;
         l=m;
@@ -25,11 +27,6 @@ void Change_Mark(int l,int m,int n)
 }
 int main()
 {
-    const int maxn_n = maxn * (maxn - 1) / 2;
-    int p[4][maxn_n];
-    int Mark[maxn];
-    int k,i,t,m,n;
-
     cout<<"Введите через пробел кол-во вершин и кол-во ребер"<<endl;
     cin>>n>>m;
     cout<<"Введите "<< m <<" раз через пробел номер одной и второй вершины ребра и вес этого ребра"<<endl;
@@ -57,13 +54,14 @@ int main()
     }
     k = 0;
     t = m;
-    i=0;
     while (k < (n - 1)) {
+        i=1;
+        while ((i<=t)&&(Mark[p[1][i]]==Mark[p[2][i]])&&(p[1][i]))
         i++;
-        k++;
+            k++;
         if ((p[1][i] * p[2][i]) != 0) {
             cout<<p[1][i]<<" "<<p[2][i]<<endl;
-            Change_Mark(Mark[(p[1][i])], Mark[(p[2][i])], n);
+            Change_Mark(Mark[p[1][i]], Mark[p[2][i]], n);
         }
 
 
